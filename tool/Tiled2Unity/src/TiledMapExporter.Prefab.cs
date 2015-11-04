@@ -146,6 +146,9 @@ namespace Tiled2Unity
 
                 // Transform object locaction into map space (needed for isometric and hex modes) 
                 PointF xfPosition = TmxMath.ObjectPointFToMapSpace(this.tmxMap, tmxObject.Position);
+                
+                xfPosition.Y -= tmxObject.Size.Height; //tmx Object left corner 0,0
+
                 Vector3D pos = PointFToUnityVector(xfPosition);
                 xmlObject.SetAttributeValue("x", pos.X);
                 xmlObject.SetAttributeValue("y", pos.Y);
